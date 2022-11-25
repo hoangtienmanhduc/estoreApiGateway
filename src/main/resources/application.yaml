@@ -1,0 +1,46 @@
+server:
+  port: 9393
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: getAllCategories
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/getAllCategories
+        - id: categoriesId
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/categories/{id}
+        - id: getAllCustomer
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/getAllCustomer
+        - id: register
+          uri: http://localhost:5000/login
+          predicates:
+            - Path=/register
+        - id: login
+          uri: http://localhost:5000/login
+          predicates:
+            - Path=/login
+        - id: saveOrder
+          uri: http://localhost:5000/
+          predicates:
+            - Path=saveOrder
+        - id: getOrderId
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/getOrder/{id}
+        - id: getAllProduct
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/getAllProduct
+        - id: getProductId
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/product/{id}
+        - id: getCategoryId
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/list-by-category/{cid}
